@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Szili Janka Portfolio | Photos & Drawings</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="pictures/logo1.png" alt="Szili Janka logo" />
+      </div>
+      <ul class="nav-links">
+        <li>
+            <a href="#home" >
+                <img src="pictures/photoicon.png" />
+                 Photos</a>
+        </li>
+        <li>
+            <a href="#portfolio">
+                <img src="pictures/drawingsicon.png" />
+                Drawings</a>
+        </li>
+        <li>
+            <a href="#contact">
+                <img src="pictures/contacticon.png" />
+                Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <section class="panel" id="home">
+    <img src="pictures/profile.jpg" />
+    <div class="content">
+      <p>Üdvözöllek a portfoliómon!</p>
+      <h1>Helló, Janka vagyok</h1>
+      <p class="subtitle">Fotós / Grafikus</p>
+      <p>Készen állok, hogy megvalósítsam az álmaidat.</p>
+    </div>
+  </section>
+
+  <section class="panel" id="portfolio">
+    <div class="content">
+      <h2>Portfolió</h2>
+      <p>Fotók és Rajzok</p>
+      <div class="gallery">
+        <img src="https://via.placeholder.com/300x200" alt="">
+        <img src="https://via.placeholder.com/300x200" alt="">
+        <img src="https://via.placeholder.com/300x200" alt="">
+        <img src="https://via.placeholder.com/300x200" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="contact">
+    <div class="content">
+      <h2>Vedd fel velem a kapcsolatot!</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
