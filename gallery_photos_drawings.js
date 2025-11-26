@@ -7,7 +7,7 @@ class JustifiedGallery {
   }
 
   async loadImages() {
-    const basePath = `/static/${this.folderName}`;
+    const basePath = `static/${this.folderName}`;
     const manifestUrl = `${basePath}/manifest_gallery.json`;
 
     try {
