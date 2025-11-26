@@ -1,9 +1,3 @@
-/**
- * Egy galĂŠria pĂŠldĂĄny ĂĄllapota
- * - container: a DOM elem (div#justified-gallery-XXX)
- * - folderName: a static alatti mappa neve (XXX)
- * - images: betĂśltĂśtt kĂŠpadatok
- */
 class JustifiedGallery {
   constructor(container) {
     this.container = container;
@@ -12,16 +6,8 @@ class JustifiedGallery {
     this.images = [];
   }
 
-  /**
-   * KĂŠpek betĂśltĂŠse a megfelelĹ static mappĂĄbĂłl:
-   * static/<folderName>/manifest.json
-   * static/<folderName>/gallery/<fileName>
-   *
-   * A manifest.json egy string tĂśmb:
-   * ["file1.jpg", "file2.jpg", ...]
-   */
   async loadImages() {
-    const basePath = `/static/${this.folderName}`;
+    const basePath = `SZAKDOLGOZAT_PORTFOLIO//static/${this.folderName}`;
     const manifestUrl = `${basePath}/manifest.json`;
 
     try {
@@ -45,7 +31,7 @@ class JustifiedGallery {
             });
           };
           img.onerror = () =>
-            reject(new Error(`Nem sikerĂźlt betĂślteni a kĂŠpet: ${fileName}`));
+            reject(new Error(`Nem sikerült betölteni a képet: ${fileName}`));
           img.src = `${basePath}/gallery/${fileName}`;
         });
       });
@@ -54,15 +40,12 @@ class JustifiedGallery {
       this.render();
     } catch (err) {
       console.error(
-        `Hiba a(z) ${this.folderName} galĂŠria kĂŠpeinek betĂśltĂŠsekor:`,
+        `Hiba a(z) ${this.folderName} galéria képeinek betöltésekor:`,
         err
       );
     }
   }
 
-  /**
-   * Justified layout szĂĄmĂ­tĂĄsa egy adott kĂŠptĂśmbre.
-   */
   computeRows(containerWidth, targetRowHeight, gap) {
     const rows = [];
     let currentRow = [];
@@ -81,7 +64,6 @@ class JustifiedGallery {
       const isLastImage = index === this.images.length - 1;
 
       if (rowWidthAtTarget >= maxWidth || isLastImage) {
-        // UtolsĂł sor: ha tĂşl "gyenge", nem hĂşzzuk teljesen ki
         let rowHeight = targetRowHeight;
         if (!isLastImage || rowWidthAtTarget >= maxWidth * 0.75) {
           const scale =
@@ -107,9 +89,6 @@ class JustifiedGallery {
     return rows;
   }
 
-  /**
-   * GalĂŠria kirajzolĂĄsa az aktuĂĄlis kĂŠpekbĹl.
-   */
   render() {
     if (!this.container || this.images.length === 0) return;
 
@@ -151,10 +130,8 @@ class JustifiedGallery {
   }
 }
 
-// Az Ăśsszes galĂŠria pĂŠldĂĄny listĂĄja (ha tĂśbb is van az oldalon)
 const galleries = [];
 
-// InicializĂĄlĂĄs: keressĂźk az Ăśsszes olyan elemet, aminek az id-ja justified-gallery-vel kezdĹdik
 document.addEventListener("DOMContentLoaded", () => {
   const containers = document.querySelectorAll("[id^='justified-gallery-']");
 
@@ -165,7 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Resize: minden galĂŠriĂĄt ĂşjrarenderelĂźnk (debounce)
 let resizeTimeout;
 window.addEventListener("resize", () => {
   clearTimeout(resizeTimeout);
