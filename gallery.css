@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+#justified-gallery {
+  width: 100%;
+  padding: auto;
+  margin: auto;
+}
+
+.jg-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.jg-item {
+  position: relative;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.jg-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.2s ease-out;
+}
+
+/* Hover csak desktopon */
+@media (hover: hover) and (pointer: fine) {
+  .jg-item img:hover {
+    transform: scale(1.03);
+  }
+}
+

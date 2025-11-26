@@ -1,0 +1,930 @@
+/* ===========================================
+   Krugmann Brush
+   Copyright (C) 2014 Peter Wiegel
+   Licensed under the SIL Open Font License, Version 1.1
+   http://scripts.sil.org/OFL
+   =========================================== */
+@font-face {
+  font-family: 'Krugmann Brush';
+  src: url('fonts/headings/KrugmannBrush.woff') format('woff');
+}
+
+/* ===========================================
+   Computer Modern Unicode
+   Copyright (C) Andrey V. Panov and others
+   Licensed under the SIL Open Font License, Version 1.1
+   http://scripts.sil.org/OFL
+   =========================================== */
+@font-face {
+  font-family: 'CMU Typewriter Text';
+  src: url('fonts/body/cmunbtl.woff') format('woff');
+}
+
+:root {
+  --black1: #121212;
+  --black2: #1E1E1E;
+  --green1: #205B1F;
+  --green2: #286947;
+  --mint: #2AC98B;
+  --light: #EDEDED;
+  --gray: #A0A0A0;
+
+  --font-deco: 'Krugmann Brush';
+  --font-body: 'CMU Typewriter Text';
+}
+
+body {
+  margin: 0;
+  background-color: var(--light);
+  color: var(--green2);
+  font-family: var(--font-body);
+  scroll-behavior: smooth;
+}
+
+/* --- Navbar --- */
+header {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 1000;
+  align-content: center;
+  background: var(--black2);
+  backdrop-filter: blur(6px);
+  transition: background 0.3s ease;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2em;
+  margin: 0;
+  align-content: center;
+}
+
+.nav-links img{
+    height: 0.8em;
+    align-content: center;
+    margin: auto;
+}
+
+.nav-links li{
+    align-items: center;
+    justify-content: center;
+    padding: auto;
+}
+
+.nav-links a {
+  color: var(--light);
+  align-content: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease, border-bottom 0.1s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  /*color: var(--mint);*/
+  border-bottom: 2px solid var(--mint);
+}
+
+/* --- Home --- */
+#home img{
+    margin-bottom: 1em;
+    border-radius: 15em;
+  }
+
+
+/* --- Sections --- */
+button{
+    background-color: var(--mint);
+    color: var(--black1);
+    border: 2px solid var(--mint);
+    padding: 0.9em 1.5em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 2em;
+}
+
+button:hover {
+    border: 2px solid var(--mint);
+    background-color: var(--black1);
+    color: var(--light);
+}
+
+section.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: filter 0.8s ease, opacity 0.8s ease;
+  text-align: center;
+  padding: 6em;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#portfolio,
+#about{
+    align-content: center;
+    width: 100%;
+    padding: 0;
+    padding-top: 2em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#portfolio h2,
+#about h2,
+#portfolio p,
+#about p{
+    color: var(--light);
+}
+
+#portfolio .content,
+#about .content{
+    background-color: var(--black1);
+    padding: 2em 4em;
+    align-content: center;
+    width: 100%;
+}
+
+#about h3 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+
+#about .about_tabs{
+    margin: 2em;
+    align-content: center;
+}
+
+#about .content h3{
+  background-color: var(--mint);
+  color: var(--black1);
+  margin: auto;
+    border-radius: 1em;
+    padding: 0.2em;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 1em;
+    width: fit-content;
+}
+#about .content .tabs{
+  display: flex;
+  align-content: center;
+  gap: 3em;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-top: 4em;
+}
+
+#about .content .tabs .about_tabs{
+  width: 30%;
+  flex: 0 1 30%;
+  margin: auto;
+  margin-top: 0;
+   float:left;
+   align-content: center;
+}
+
+#about .content .tabs .about_tabs .left,
+#about .content .tabs .about_tabs .right{
+  float: left;
+  width: 50%;
+  align-content: center;
+}
+
+#about .content .tabs #what{
+  width: 60% !important;
+  flex: 0 1 60% !important;
+  align-content: center;
+}
+
+#about .content .tabs .about_tabs #what h3{
+  margin: auto !important;
+  float: center;
+}
+
+#what p.small {
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+section.active {
+  filter: blur(0) brightness(1);
+  opacity: 1;
+}
+
+section.inactive {
+  filter: blur(4px) brightness(0.5);
+  opacity: 0.5;
+}
+
+.content h1,
+.content h2,
+.content h3  {
+  font-family: var(--font-deco);
+  color: var(--green2);
+  margin: 0;
+}
+
+.content p{
+    color: var(--green2);
+    margin: 0.3em;
+}
+
+.subtitle {
+  font-weight: bold;
+  color: var(--light) !important;
+  background-color: var(--green2);
+  height: 2.5em;
+  align-content: center;
+  border-radius: 1.2em;
+}
+
+/* --- Gallery --- */
+.portfolio-tabs {
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.portfolio-tabs button {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  cursor: pointer;
+  background: var(--black1);
+  color: white;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+.portfolio-tabs button.active {
+  border: 0.2em solid var(--mint);
+  border-top: var(--black1);
+  border-left: var(--black1);
+  border-right: var(--black1);
+}
+
+.portfolio-tabs button:hover {
+  background-color: var(--mint);
+  color: var(--black1);
+}
+
+.hidden {
+  display: none !important;
+}
+.no-breake{
+  white-space: nowrap;
+}
+
+/* --- Contact Form --- */
+
+.contact-footer-tabs{
+  display: flex;
+  align-content: space-between;
+  width: 100%;
+  gap: 1rem;
+  margin: auto;
+  margin-bottom: 2rem;
+
+}
+
+.contact-footer-tabs .tabs{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-content: center;
+}
+
+.contact h1{
+  margin: 10em;
+  margin-bottom: 50em;
+}
+
+footer .small{
+  font-size: 0.6em !important;
+  margin-top: 0.5em;
+  text-align: center;
+}
+
+footer p{
+  width: fit-content;
+  margin: auto;
+}
+
+footer{
+  background-color: var(--green2);
+  color: var(--light);
+  align-content: center;
+  padding: 2em;
+  margin: auto;
+}
+
+
+.contact-footer-tabs{
+  width: 60% !important;
+  margin: auto;
+  margin-bottom: 2em;
+  font-size: 0.7em;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+}
+
+.contact-footer-tabs .tabs a{
+  border: 0px solid var(--light);
+  color: var(--light);
+}
+
+
+
+.contact-footer-tabs .tabs a img{
+  height: 1em;
+  width: 1em;
+}
+
+.contact-footer-tabs h3,
+.contact-footer-tabs p{
+  font-size: 1em;
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 0.5em;
+}
+
+
+/* --- responsiveness --- */
+
+ /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+/* --- Navbar --- */
+  nav {
+    width: 90%;
+    flex-direction: column;
+    align-content: center;
+    gap: 0.5em;
+    padding: 0.6em 0 0.6em 0;
+    margin: auto;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+  }
+
+
+  .logo img {
+    height: 1em;
+  }
+
+/* --- Home --- */
+    #home img{
+    height: 10em;
+  }
+
+  body p{
+    font-size: 0.8em;
+  }
+  
+  body h3{
+    font-size: 1em;
+  }
+  
+  body h1,
+  body h2{
+    font-size: 2em;
+  }
+
+  section.panel {
+    padding: 6em 2em 6em 2em;
+    margin-top: 3em;
+  }
+
+  #contact .content{
+    padding: 1em 2em;
+    width: auto;
+  }
+
+  #contact p{
+    width: 60%;
+    margin: auto;
+  }
+
+  .contact-tabs{
+    display: flex;
+    flex-direction: row;
+    padding: 1em 1em;
+    align-content: center;
+    width: 100%;
+  }
+
+  .contact-tabs img{
+    align-content: center;
+    margin: auto;
+    width: auto;
+    height: 3.5em;
+    margin-bottom: 0.8em;
+  }
+
+  .contact-tabs .tabs{
+    display: grid;
+    width: 30%;
+    margin: auto;
+    margin-top: 1em;
+    align-content: center;
+  }
+
+  .tabs a img{
+    height: 0.8em;
+    align-content: center;
+    margin: auto;
+}
+
+  .tabs a {
+    width: auto;
+    height: fit-content;
+    margin: auto;
+  color: var(--green1);
+  word-break: break-word;
+  align-content: center;
+  text-decoration: none;
+  margin-bottom: 0.4em;
+  border: 2px solid var(--light);
+  font-weight: bold;
+  font-size: 0.65em;
+  transition: color 0.2s ease, border-bottom 0.1s ease;
+}
+
+.tabs a:hover,
+.tabs a.active {
+  border-bottom: 2px solid var(--mint);
+}
+#about .content .tabs .about_tabs{
+  width: 100% !important;
+  margin: auto;
+
+}
+
+
+#about .content .tabs #what{
+  width: 100% !important;
+}
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+/* --- Navbar --- */
+  nav {
+    width: 90%;
+    flex-direction: column;
+    gap: 0.5em;
+    padding: 0.6em 0 0.6em 0;
+    margin: auto;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .nav-links a{
+    font-size: 1em;
+  }
+
+  .logo img {
+    height: 1.5em;
+  }
+
+/* --- Home --- */
+    #home img{
+    height: 12em;
+  }
+
+  body p{
+    font-size: 1em;
+  }
+
+  body h3{
+    font-size: 1.5em;
+  }
+  
+  body h1,
+  body h2{
+    font-size: 3em;
+  }
+
+  section.panel {
+    padding: 6em 2em 6em 2em;
+  }
+
+  #contact .content{
+    padding: 1em 2em;
+    width: auto;
+  }
+
+  #contact p{
+    width: 60%;
+    margin: auto;
+  }
+
+  .contact-tabs{
+    display: flex;
+    flex-direction: row;
+    padding: 1em 5em;
+    width: auto;
+  }
+
+  .contact-tabs .tabs{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: auto;
+    margin-top: 1em;
+    align-content: center;
+  }
+
+  .contact-tabs img{
+    margin: auto;
+    align-content: center;
+    margin-bottom: 2em;
+    width: 6.5em;
+    height: 6.5em;
+  }
+
+  .tabs a img{
+    height: 0.6em;
+    width: 0.6em;
+    align-content: center;
+    margin: auto;
+}
+
+  .tabs a {
+    width: auto;
+    margin: auto;
+  color: var(--green1);
+  word-break: break-word;
+  align-content: center;
+  text-decoration: none;
+  margin-bottom: 0.2em;
+  border: 2px solid var(--light);
+  font-weight: bold;
+  transition: color 0.2s ease, border-bottom 0.1s ease;
+}
+
+.tabs a:hover,
+.tabs a.active {
+  border-bottom: 2px solid var(--mint);
+}
+
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+/* --- Navbar --- */
+  nav {
+    flex-direction: row;
+    gap: 0.5em;
+    padding: 0.6em 2em;
+    margin: auto;
+  }
+
+  .nav-links {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .nav-links a{
+    font-size: 1em;
+  }
+
+  .logo img {
+    height: 1.5em;
+  }
+
+/* --- Home --- */
+    #home img{
+    height: 15em;
+  }
+
+  body p{
+    font-size: 1.2em;
+  }
+  
+  body h3{
+    font-size: 1.8em;
+  }
+  
+  body h1,
+  body h2{
+    font-size: 3.5em;
+  }
+
+  section.panel {
+    padding: 6em 2em 6em 2em;
+  }
+
+  #contact .content{
+    padding: 1em 2em;
+    width: auto;
+  }
+
+  #contact p{
+    width: 60%;
+    margin: auto;
+  }
+
+  .contact-tabs{
+    display: flex;
+    flex-direction: row;
+    padding: 1em 5em;
+    width: auto;
+  }
+
+  .contact-tabs .tabs{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: auto;
+    margin-top: 1em;
+    align-content: center;
+  }
+
+  .contact-tabs img{
+    margin: auto;
+    align-content: center;
+    margin-bottom: 2em;
+    width: 8em;
+    height: 8em;
+  }
+
+  .tabs a img{
+    height: 0.8em;
+    width: 0.8em;
+    align-content: center;
+    margin: auto;
+}
+
+  .tabs a {
+    width: auto;
+    margin: auto;
+  color: var(--green1);
+  align-content: center;
+  text-decoration: none;
+  margin-bottom: 0.2em;
+  border: 2px solid var(--light);
+  font-weight: bold;
+  transition: color 0.2s ease, border-bottom 0.1s ease;
+}
+
+.tabs a:hover,
+.tabs a.active {
+  border-bottom: 2px solid var(--mint);
+}
+
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+/* --- Navbar --- */
+  nav {
+    flex-direction: row;
+    gap: 0.5em;
+    padding: 0.6em 2em;
+    margin: auto;
+  }
+
+  .nav-links {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .nav-links a{
+    font-size: 1.1em;
+  }
+
+  .logo img {
+    height: 1.5em;
+  }
+
+  /* --- sections --- */
+    section.panel {
+      min-height: 100vh;
+    }
+
+
+/* --- Home --- */
+    #home img{
+    height: 18em;
+  }
+
+  body p{
+    font-size: 1.3em;
+  }
+  
+  body h3{
+    font-size: 2em;
+  }
+  
+  body h1,
+  body h2{
+    font-size: 4em;
+  }
+
+  section.panel {
+    padding: 6em 2em 6em 2em;
+  }
+
+  #contact .content{
+    padding: 1em 4em;
+    width: auto;
+    align-content: center;
+  }
+
+  #contact p{
+    width: 60%;
+    margin: auto;
+  }
+
+  .contact-tabs{
+    display: flex;
+    flex-direction: row;
+    padding: 1em 5em;
+    width: auto;
+  }
+
+  .contact-tabs .tabs{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: auto;
+    margin-top: 1em;
+    align-content: center;
+  }
+
+  .contact-tabs img{
+    margin: auto;
+    align-content: center;
+    margin-bottom: 2em;
+    width: 10em;
+    height: 10em;
+  }
+
+  .tabs a img{
+    height: 1em;
+    width: 1em;
+    align-content: center;
+    margin: auto;
+}
+
+  .tabs a {
+    width: auto;
+    margin: auto;
+  color: var(--green1);
+  align-content: center;
+  text-decoration: none;
+  margin-bottom: 0.2em;
+  border: 2px solid var(--light);
+  font-weight: bold;
+  transition: color 0.2s ease, border-bottom 0.1s ease;
+}
+
+.tabs a:hover,
+.tabs a.active {
+  border-bottom: 2px solid var(--mint);
+}
+
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+/* --- Navbar --- */
+  nav {
+    flex-direction: row;
+    gap: 0.5em;
+    padding: 0.6em 2em;
+    margin: auto;
+  }
+
+  .nav-links {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .nav-links a{
+    font-size: 1.2em;
+  }
+
+  .logo img {
+    height: 2.5em;
+  }
+
+  /* --- sections --- */
+    section.panel {
+      min-height: 100vh;
+    }
+
+
+/* --- Home --- */
+    #home img{
+    height: 16em;
+  }
+
+  body p{
+    font-size: 1.3em;
+  }
+  
+  body h3{
+    font-size: 2em;
+  }
+  
+  body h1,
+  body h2{
+    font-size: 4em;
+  }
+
+
+  section.panel {
+    padding: 6em 2em 6em 2em;
+  }
+
+  #contact .content{
+    padding: 1em 4em;
+    width: auto;
+  }
+
+  #contact p{
+    width: 60%;
+    margin: auto;
+  }
+
+  .contact-tabs{
+    display: flex;
+    flex-direction: row;
+    padding: 1em 5em;
+    width: auto;
+  }
+
+  .contact-tabs .tabs{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: auto;
+    margin-top: 1em;
+    align-content: center;
+  }
+
+  .contact-tabs img{
+    margin: auto;
+    align-content: center;
+    margin-bottom: 2em;
+    width: 12em;
+    height: 12em;
+  }
+
+  .tabs a img{
+    height: 1.2em;
+    width: 1.2em;
+    align-content: center;
+    margin: auto;
+}
+
+  .tabs a {
+    width: auto;
+    margin: auto;
+  color: var(--green1);
+  align-content: center;
+  text-decoration: none;
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
+  border: 2px solid var(--light);
+  font-weight: bold;
+  transition: color 0.2s ease, border-bottom 0.1s ease;
+}
+
+.tabs a:hover,
+.tabs a.active {
+  border-bottom: 2px solid var(--mint);
+}
+
+
+} 
