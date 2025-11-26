@@ -27,7 +27,7 @@ class JustifiedGallery {
     try {
       const response = await fetch(manifestUrl);
       if (!response.ok) {
-        throw new Error(`Nem sikerĂźlt betĂślteni a manifestet: ${manifestUrl}`);
+        throw new Error(`Nem sikerült betölteni a manifestet: ${manifestUrl}`);
       }
 
       /** @type {string[]} */
@@ -177,3 +177,4 @@ window.addEventListener("resize", () => {
     });
   }, 150);
 });
+
