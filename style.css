@@ -35,7 +35,7 @@
 
 body {
   margin: 0;
-  background-color: var(--light);
+  background-color: var(--black1);
   color: var(--green2);
   font-family: var(--font-body);
   scroll-behavior: smooth;
@@ -149,7 +149,7 @@ section.panel {
 
 #portfolio .content,
 #about .content{
-    background-color: var(--black1);
+    background-color: var(--light);
     padding: 2em 4em;
     align-content: center;
     width: 100%;
