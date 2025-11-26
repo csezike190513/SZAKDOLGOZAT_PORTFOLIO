@@ -3,30 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Szili Janka Portfolio | Photos & Drawings</title>
+  <title>Szili Janka Portfólió | Fotók & Rajzok</title>
+  <link rel="icon" href="pictures/logo1.png">
+  <link rel="stylesheet" href="gallery.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <nav>
-      <div class="logo">
+      <a href="main.html#home"><div class="logo">
         <img src="pictures/logo1.png" alt="Szili Janka logo" />
       </div>
+    </a>
       <ul class="nav-links">
         <li>
-            <a href="#home" >
+            <a href="#portfolio" id="photosnav">
                 <img src="pictures/photoicon.png" />
-                 Photos</a>
+                 Fotók</a>
         </li>
         <li>
-            <a href="#portfolio">
+            <a href="#portfolio" id="drawingsnav">
                 <img src="pictures/drawingsicon.png" />
-                Drawings</a>
+                Rajzok</a>
         </li>
         <li>
             <a href="#contact">
                 <img src="pictures/contacticon.png" />
-                Contact</a>
+                Kapcsolat</a>
+        </li>
+        <li>
+            <a href="#about">
+                <img src="pictures/abouticon.png" />
+                Rólam</a>
         </li>
       </ul>
     </nav>
@@ -34,38 +42,138 @@
   <section class="panel" id="home">
     <img src="pictures/profile.jpg" />
     <div class="content">
-      <p>Üdvözöllek a portfoliómon!</p>
+      <p>Üdvözöllek a portfóliómon!</p>
       <h1>Helló, Janka vagyok</h1>
       <p class="subtitle">Fotós / Grafikus</p>
       <p>Készen állok, hogy megvalósítsam az álmaidat.</p>
     </div>
   </section>
-
   <section class="panel" id="portfolio">
     <div class="content">
-      <h2>Portfolió</h2>
-      <p>Fotók és Rajzok</p>
-      <div class="gallery">
-        <img src="https://via.placeholder.com/300x200" alt="">
-        <img src="https://via.placeholder.com/300x200" alt="">
-        <img src="https://via.placeholder.com/300x200" alt="">
-        <img src="https://via.placeholder.com/300x200" alt="">
+      <h2>Portfólió</h2>
+
+      <div class="portfolio-tabs">
+        <button id="photosBtn" class="active">Fotók</button>
+        <button id="drawingsBtn">Rajzok</button>
       </div>
+
+      <div class="gallery"  id="photos">
+        <div id="justified-gallery-photos"></div>
+      </div>
+
+      <div class="gallery hidden"  id="drawing">
+        <div id="justified-gallery-drawings"></div>
+      </div>
+
+      <a href="photos_gallery.html"><button class="gallery" id="photosbutton">Mutass többet!</button></a>
+      <a href="drawings_gallery.html"><button class="gallery hidden" id="drawingbutton">Mutass többet!</button></a>
+
     </div>
   </section>
-
   <section class="panel" id="contact">
     <div class="content">
       <h2>Vedd fel velem a kapcsolatot!</h2>
-      <form>
-        <input type="text" placeholder="Name" required>
-        <input type="email" placeholder="Email" required>
-        <textarea placeholder="Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
+      <p>Pillanatokat örökítek meg, illusztrációkat készítek és történeteket elmesélő vizuális effekteket tervezek. Akár lenyűgöző fotókra, kifejező rajzokra vagy átgondolt tervezési munkára van szükséged, szívesen együtt dolgoznék veled és életre kelteném az ötletedet.</p>
+      <div class="contact-tabs">
+      <div class="tabs">
+        <img src="pictures/calliconfull.png" alt="">
+        <h3>Hívj</h3>
+        <a href="tel:+36309566933">+36​(30)​956 6933</a>
+      </div>
+      <div class="tabs">
+        <img src="pictures/messegeiconfull.png" alt="">
+        <h3>Írj</h3>
+        <a href="https://www.facebook.com/janka.szili/"   class="no-breake">
+                <img src="pictures/facebookicon.png" />
+                 Szili Janka</a>
+        <a href="https://www.instagram.com/szj_photos_/"  class="no-breake">
+                <img src="pictures/instaicon.png" />
+                 @szj_photos_</a>
+      </div>
+      <div class="tabs">
+        <img src="pictures/pciconfull.png" alt="">
+        <h3>Küldj emailt</h3>
+        <a href="mailto:jankaszili14@gmail.com">jankaszili14@​gmail.com</a>
+      </div>
+      </div>
     </div>
   </section>
-
-  <script src="script.js"></script>
+   <section class="panel" id="about">
+    <div class="content">
+      <h2>Ki vagyok èn?</h2>
+      <div class="tabs">
+      <div class="about_tabs">
+        <h3>Hobbik ès èrdeklődès</h3>
+        <p>Zene</p>
+        <p>Filmek</p>
+        <p>Kávé rajongó</p>
+        <p>Videó játékok</p>
+      </div>
+      <div class="about_tabs">
+        <h3>Szoftverek</h3>
+        <p>Adobe Illustrator</p>
+        <p>Adobe Photoshop</p>
+        <p>Adobe Lightroom</p>
+        <p>Procreate</p>
+      </div>
+      <div class="about_tabs">
+      <h3>Kreatív kèszsègek</h3>
+        <p>Festés</p>
+        <p>Kréta rajz</p>
+        <p>Ceruza rajz</p>
+        <p>Kép szerkesztés</p>
+        <p>Fotózás</p>
+        <p>Tervezés</p>
+      </div>
+      <div class="about_tabs" id="what">
+        <h3>Mit vállalok?</h3>
+        <div class="left">
+        <p>Protré</p>
+        <p>Állat fotók</p>
+        <p>Csoportos / Csalási / Páros fotózás</p>
+        <p>Autó / motor fotók</p>
+        <p>Részlet kéepk</p>
+        <p>Táj képek</p>
+        <p class="small">(Fotózás csak kültéren vagy háznál)</p>
+        </div>
+        <div class="right">
+        <p>Logó</p>
+        <p>Arculat</p>
+        <p>Vonal rajz</p>
+        <p>Vázlatos stílus</p>
+        <p>Cartoon stílus</p>
+        <p>Szöveg rajz</p>
+        <p>Absztrakt</p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="contact-footer-tabs">
+      <div class="tabs">
+        <h3>Hívj</h3>
+        <a href="tel:+36309566933">+36​(30)​956 6933</a>
+      </div>
+      <div class="tabs">
+        <h3>Írj</h3>
+        <a href="https://www.facebook.com/janka.szili/"   class="no-breake">
+                <img src="pictures/facebookicon_light.png" />
+                 Szili Janka</a>
+        <a href="https://www.instagram.com/szj_photos_/"  class="no-breake">
+                <img src="pictures/instaicon_light.png" />
+                 @szj_photos_</a>
+      </div>
+      <div class="tabs">
+        <h3>Küldj emailt</h3>
+        <a href="mailto:jankaszili14@gmail.com">jankaszili14@​gmail.com</a>
+      </div>
+      </div>
+      <p class="small">Copyright<sup>©</sup> 2024 Szili Janka. Minden jog fenntartva.</p>
+      <p class="small">Krugmann Brush Copyright<sup>©</sup> 2014 Peter Wiegel. Licensed under the SIL Open Font License, Version 1.1</p>
+      <p class="small">Computer Modern Unicode Copyright<sup>©</sup> Andrey V. Panov and others. Licensed under the SIL Open Font License, Version 1.1</p>
+  </footer>
+  <script src="gallery.js"></script>
+  <script src="portfolio.js"></script>
 </body>
 </html>
