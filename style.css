@@ -147,9 +147,13 @@ section.panel {
     color: var(--light);
 }
 
+#home .content,
+#contact .content{
+    background-color: var(--light);
+}
+
 #portfolio .content,
 #about .content{
-    background-color: var(--light);
     padding: 2em 4em;
     align-content: center;
     width: 100%;
