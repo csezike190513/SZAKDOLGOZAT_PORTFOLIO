@@ -147,8 +147,8 @@ section.panel {
     color: var(--light);
 }
 
-#home .panel,
-#contact .panel{
+#home,
+#contact{
     background-color: var(--light);
 }
 
